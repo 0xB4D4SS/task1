@@ -8,13 +8,14 @@
         <div class="card">
 
             <vinyl-form
-                :action="'{{ $vinyl->resource_url }}'"
+                :action="'{{ 'update' }}'"
                 :data="{{ $vinyl->toJson() }}"
                 v-cloak
                 inline-template>
 
                 <form class="form-horizontal form-edit" method="get" @submit.prevent="onSubmit" :action="action" novalidate>
-
+                    @csrf
+                    @method('put')
 
                     <div class="card-header">
                         <i class="fa fa-pencil"></i> {{ trans('admin.vinyl.actions.edit', ['name' => $vinyl->name]) }}
