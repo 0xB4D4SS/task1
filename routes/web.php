@@ -59,7 +59,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/',                                            'VinylsController@store')->name('store');
             Route::get('/{vinyl}/edit',                                 'VinylsController@edit')->name('edit');
             Route::post('/bulk-destroy',                                'VinylsController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/vinyls/{vinyl}',                                     'VinylsController@update')->name('update');
+            Route::post('/{vinyl}/update',                                     'VinylsController@update')->name('update');
             Route::delete('/{vinyl}',                                   'VinylsController@destroy')->name('destroy');
         });
     });
