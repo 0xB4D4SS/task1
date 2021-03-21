@@ -15,7 +15,7 @@ class CreateVinylsTable extends Migration
     {
         Schema::create('vinyls', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->;
             $table->string('author');
             $table->string('year');
             $table->timestamps();

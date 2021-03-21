@@ -100,7 +100,9 @@ class VinylsController extends Controller
     {
         $this->authorize('admin.vinyl.show', $vinyl);
 
-        // TODO your code goes here
+        return view('admin.vinyl.edit', [
+            'vinyl' => $vinyl,
+        ]);
     }
 
     /**
@@ -174,7 +176,7 @@ class VinylsController extends Controller
     public function bulkDestroy(BulkDestroyVinyl $request) : Response
     {
         DB::transaction(static function () use ($request) {
-            collect($request->data['id'])
+            collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
                     Vinyl::whereIn('id', $bulkChunk)->delete();

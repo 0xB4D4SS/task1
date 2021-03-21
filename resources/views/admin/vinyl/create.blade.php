@@ -7,14 +7,15 @@
     <div class="container-xl">
 
                 <div class="card">
-        
+
         <vinyl-form
             :action="'{{ url('admin/vinyls') }}'"
             v-cloak
             inline-template>
 
             <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
-                
+                {{ csrf_field() }}
+                {{ method_field('put') }}
                 <div class="card-header">
                     <i class="fa fa-plus"></i> {{ trans('admin.vinyl.actions.create') }}
                 </div>
@@ -22,14 +23,14 @@
                 <div class="card-body">
                     @include('admin.vinyl.components.form-elements')
                 </div>
-                                
+
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary" :disabled="submiting">
                         <i class="fa" :class="submiting ? 'fa-spinner' : 'fa-download'"></i>
                         {{ trans('brackets/admin-ui::admin.btn.save') }}
                     </button>
                 </div>
-                
+
             </form>
 
         </vinyl-form>
@@ -38,5 +39,5 @@
 
         </div>
 
-    
+
 @endsection

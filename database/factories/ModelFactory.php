@@ -29,3 +29,9 @@ $factory->define(App\Models\Vinyl::class, static function (Faker\Generator $fake
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Generator $faker) {
+    return [
+        
+    ];
+});
